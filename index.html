@@ -1,98 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course Page</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    transition: background 0.3s, color 0.3s;
-    background-color: #fefefe;
-    color: #111;
-  }
+<!-- BIO SECTION -->
+<div class="bio">
+  <p>Hello! I’m Sheen Hera, a passionate programmer...</p>
+</div>
 
-  /* Dark mode styles */
-  body.dark-mode {
-    background-color: #111;
-    color: #fefefe;
-  }
+<!-- SPACE BEFORE COURSE TITLE -->
+<div style="margin-left: 3ch;">
+  <h1>Introduction to Programming</h1>
+</div>
 
-  header {
-    padding: 20px;
-    text-align: left;
-  }
-
-  h1.course-title {
-    margin-left: 3ch; /* 3 character spaces */
-  }
-
-  .social-icons {
-    text-align: center;
-    margin: 20px 0;
-  }
-
-  .social-icons img {
-    width: 40px;
-    margin: 0 10px;
-    vertical-align: middle;
-  }
-
-  .sheen {
-    text-align: center;
-    margin: 10px 0;
-    font-weight: bold;
-  }
-
-  .credits {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: gray;
-  }
-
-  .mode-switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    background: #eee;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <h1 class="course-title">   Introduction to Programming</h1> <!-- 3 spaces before title -->
-</header>
-
+<!-- SOCIAL ICONS -->
 <div class="social-icons">
   <img src="facebook-icon.png" alt="Facebook">
   <img src="twitter-icon.png" alt="Twitter">
   <img src="instagram-icon.png" alt="Instagram">
 </div>
 
-<div class="sheen">
+<!-- SHEEN NAME UNDER ICONS -->
+<div class="sheen" style="text-align:center; margin-top:10px;">
   Sheen Hera
 </div>
 
-<div class="credits">
+<!-- CREDIT -->
+<div class="credits" style="text-align:center; font-size:0.9em; color:gray;">
   &copy; Sheen Hera Y. Cortes
 </div>
 
-<!-- Light/Dark mode switch -->
-<button class="mode-switch" onclick="toggleMode()">Toggle Light/Dark Mode</button>
+<!-- LIGHT/DARK MODE SWITCH -->
+<button style="position:fixed; top:20px; right:20px; padding:8px 12px; border-radius:20px; cursor:pointer;"
+        onclick="document.body.classList.toggle('dark-mode')">
+  Toggle Mode
+</button>
 
-<script>
-  function toggleMode() {
-    document.body.classList.toggle('dark-mode');
+<style>
+  body {
+    transition: background 0.3s, color 0.3s;
+    background: #fff;
+    color: #111;
   }
-</script>
+  body.dark-mode {
+    background: #111;
+    color: #fff;
+  }
+</style>
 
-</body>
-</html>
+
