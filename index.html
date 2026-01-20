@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheen Hera | Portfolio</title>
+<title>Sheen Hera Y. Cortes | Portfolio</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -78,21 +78,21 @@ body{
 }
 
 .card{
-  width:360px;
+  width:420px; /* BIGGER CARD */
   background:var(--card);
-  border-radius:28px;
-  padding:32px 24px;
+  border-radius:30px;
+  padding:40px 30px;
   text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  box-shadow:0 25px 50px rgba(0,0,0,.25);
   color:var(--text);
 }
 
 .avatar{
-  width:120px;
-  height:120px;
+  width:130px;
+  height:130px;
   margin:auto;
   border-radius:50%;
-  padding:5px;
+  padding:6px;
   background:linear-gradient(135deg,#87ceeb,#cfefff);
 }
 
@@ -104,33 +104,39 @@ body{
 }
 
 h1{
-  margin:14px 0 6px;
+  margin:16px 0 8px;
 }
 
 .tags{
-  font-size:13px;
+  font-size:14px;
   opacity:.85;
 }
 
 .bio{
-  margin:14px 0;
-  font-size:14px;
+  margin:16px 0;
+  font-size:15px;
 }
 
 .course, .skills{
-  font-size:14px;
+  font-size:15px;
   margin-top:6px;
 }
 
 .socials{
-  margin-top:22px;
+  margin-top:24px;
   display:flex;
   justify-content:space-around;
-  font-size:13px;
+  font-size:14px;
 }
 
 .socials i{
-  font-size:22px;
+  font-size:24px;
+}
+
+.credit{
+  margin-top:18px;
+  font-size:13px;
+  opacity:.6;
 }
 
 /* ---------- DARK MODE ---------- */
@@ -148,11 +154,12 @@ h1{
   position:fixed;
   top:16px;
   right:16px;
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   border:none;
   cursor:pointer;
+  font-size:18px;
 }
 </style>
 </head>
@@ -175,7 +182,7 @@ h1{
     <img src="https://raw.githubusercontent.com/sheenherac-blip/sheenprofile/main/20150eaa-7ec9-4cf5-a5da-cb831b74b308.jpg">
   </div>
 
-  <h1>Sheen Hera</h1>
+  <h1>Sheen Hera Y. Cortes</h1>
 
   <div class="tags">
     🎨 UI design • 🎮 Gaming • 🌸 himejoshi (姫女子) • 💻 Coder
@@ -199,17 +206,21 @@ h1{
     <div><i class="fab fa-tiktok"></i><br>Sheen Hera</div>
   </div>
 
+  <div class="credit">
+    © Sheen Hera Y. Cortes
+  </div>
+
 </div>
 </div>
 
 <script>
-/* FLOWERS (SAFE) */
-for(let i=0;i<20;i++){
+/* FLOWERS */
+for(let i=0;i<22;i++){
   let f=document.createElement("div");
   f.className="flower";
   f.textContent="✿";
   f.style.left=Math.random()*100+"vw";
-  f.style.fontSize=14+Math.random()*16+"px";
+  f.style.fontSize=14+Math.random()*18+"px";
   f.style.animationDuration=6+Math.random()*6+"s";
   document.body.appendChild(f);
 }
@@ -228,3 +239,4 @@ function toggleMode(){
 
 </body>
 </html>
+
