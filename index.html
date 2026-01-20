@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheen Hera | Profile</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sheen Hera | Portfolio</title>
 
 <link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 :root{
-  --bg-light:#87ceeb;
-  --card-light:#ffffff;
-  --text-light:#222;
+  --sky:#87ceeb;
+  --card:#ffffff;
+  --text:#222;
 
-  --bg-dark:#1a1a2e;
-  --card-dark:#22223b;
-  --text-dark:#f1f1f1;
+  --dark-bg:#0f172a;
+  --dark-card:#1e293b;
+  --dark-text:#e5e7eb;
 }
+
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -29,17 +31,17 @@ body{
 #loading{
   position:fixed;
   inset:0;
-  background:#87ceeb;
+  background:var(--sky);
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:10;
+  z-index:99;
 }
 
-.loader{
-  font-size:20px;
+.loading-text{
+  font-size:22px;
   color:white;
-  letter-spacing:2px;
+  letter-spacing:3px;
   animation:pulse 1.5s infinite;
 }
 
@@ -51,24 +53,23 @@ body{
 /* ---------- FLOWERS ---------- */
 .flower{
   position:absolute;
-  top:-50px;
-  font-size:22px;
+  top:-40px;
   color:white;
-  animation:fall linear infinite;
   opacity:.7;
+  animation:fall linear infinite;
 }
 
 @keyframes fall{
   to{
-    transform:translateY(110vh) rotate(360deg);
+    transform:translateY(120vh) rotate(360deg);
   }
 }
 
-/* ---------- MAIN ---------- */
+/* ---------- APP ---------- */
 #app{
   display:none;
   min-height:100vh;
-  background:var(--bg-light);
+  background:var(--sky);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -76,37 +77,39 @@ body{
 }
 
 .card{
-  background:var(--card-light);
   width:360px;
-  padding:35px 25px;
+  background:var(--card);
   border-radius:30px;
+  padding:35px 25px;
   text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.2);
-  color:var(--text-light);
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  color:var(--text);
   transition:.4s;
 }
 
-.profile{
+.avatar{
   width:120px;
   height:120px;
+  margin:auto;
   border-radius:50%;
   padding:5px;
-  background:linear-gradient(135deg,#87ceeb,#b0e0ff);
-  margin:auto;
+  background:linear-gradient(135deg,#87ceeb,#bde7ff);
 }
 
-.profile img{
+.avatar img{
   width:100%;
   height:100%;
   border-radius:50%;
   object-fit:cover;
 }
 
-h1{margin:15px 0 5px}
+h1{
+  margin:15px 0 6px;
+}
 
 .tags{
   font-size:13px;
-  opacity:.8;
+  opacity:.85;
 }
 
 .bio{
@@ -114,50 +117,50 @@ h1{margin:15px 0 5px}
   font-size:14px;
 }
 
-.section{
-  margin-top:15px;
-  font-size:13px;
-}
-
-.skills{
+.course{
+  margin-top:10px;
   font-size:14px;
 }
 
-.icons{
-  margin-top:20px;
+.skills{
+  margin-top:8px;
+  font-size:14px;
+}
+
+.socials{
+  margin-top:22px;
   display:flex;
   justify-content:space-around;
 }
 
-.icons div{
+.socials div{
   text-align:center;
   font-size:13px;
 }
 
-.icons i{
+.socials i{
   font-size:22px;
 }
 
 /* ---------- DARK MODE ---------- */
 .dark{
-  background:var(--bg-dark)!important;
+  background:var(--dark-bg)!important;
 }
 
 .dark .card{
-  background:var(--card-dark);
-  color:var(--text-dark);
+  background:var(--dark-card);
+  color:var(--dark-text);
 }
 
 /* ---------- TOGGLE ---------- */
 .toggle{
   position:absolute;
-  top:20px;
-  right:20px;
-  background:white;
-  border:none;
-  border-radius:50%;
+  top:18px;
+  right:18px;
   width:40px;
   height:40px;
+  border-radius:50%;
+  border:none;
   cursor:pointer;
 }
 </style>
@@ -167,20 +170,8 @@ h1{margin:15px 0 5px}
 
 <!-- LOADING -->
 <div id="loading">
-  <div class="loader">Loading ✿</div>
+  <div class="loading-text">Loading ✿</div>
 </div>
-
-<!-- FLOWERS -->
-<script>
-for(let i=0;i<25;i++){
-  let f=document.createElement("div");
-  f.className="flower";
-  f.innerHTML="✿";
-  f.style.left=Math.random()*100+"vw";
-  f.style.animationDuration=5+Math.random()*5+"s";
-  document.body.appendChild(f);
-}
-</script>
 
 <!-- APP -->
 <div id="app">
@@ -189,22 +180,72 @@ for(let i=0;i<25;i++){
 
 <div class="card">
 
-  <div class="profile">
+  <div class="avatar">
     <img src="https://raw.githubusercontent.com/sheenherac-blip/sheenprofile/main/20150eaa-7ec9-4cf5-a5da-cb831b74b308.jpg">
   </div>
 
   <h1>Sheen Hera</h1>
 
   <div class="tags">
-    🎨 UI Design • 🎮 Gaming • 🌸 Himejoshi (姫女子) • 💻 Coder
+    🎨 UI design • 🎮 Gaming • 🌸 himejoshi (姫女子) • 💻 Coder
   </div>
 
   <div class="bio">
     “don’t mind me pal I'm just enjoying things in here for a while”
   </div>
 
-  <div class="section">
-    📘 BS Information Te
+  <div class="course">
+    📘 BS Information Technology
+  </div>
+
+  <div class="skills">
+    ☕ Java • 🎨 CSS • 🌐 HTML
+  </div>
+
+  <div class="socials">
+    <div>
+      <i class="fab fa-facebook"></i><br>Sheen Hera
+    </div>
+    <div>
+      <i class="fab fa-instagram"></i><br>Sheen Hera
+    </div>
+    <div>
+      <i class="fab fa-tiktok"></i><br>Sheen Hera
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+window.onload = () => {
+
+  /* FLOWERS */
+  for(let i=0;i<30;i++){
+    let f=document.createElement("div");
+    f.className="flower";
+    f.innerHTML="✿";
+    f.style.left=Math.random()*100+"vw";
+    f.style.fontSize=14+Math.random()*16+"px";
+    f.style.animationDuration=5+Math.random()*6+"s";
+    document.body.appendChild(f);
+  }
+
+  /* LOAD TRANSITION */
+  setTimeout(()=>{
+    document.getElementById("loading").style.display="none";
+    document.getElementById("app").style.display="flex";
+  },2500);
+}
+
+function toggleMode(){
+  document.getElementById("app").classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
+
 
 
 
