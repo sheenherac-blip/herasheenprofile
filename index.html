@@ -1,37 +1,130 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sheen Hera Cortes | Portfolio</title>
 
-<div style="background: #87CEEB; padding: 30px; border-radius: 20px; width: 90%; max-width: 700px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
 
-  <!-- Profile Picture -->
-  <img src="https://raw.githubusercontent.com/sheenherac-blip/sheenprofile/main/20150eaa-7ec9-4cf5-a5da-cb831b74b308.jpg"
-       alt="Profile Picture"
-       style="width: 170px; height: 170px; border-radius: 50%; border: 6px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" />
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a5acd, #7b68ee);
+    }
 
-  <!-- Name -->
-  <h1 style="margin-top: 15px;">Hi, I'm Sheen Hera 👋</h1>
+    .profile-card {
+      background: #f9f9ff;
+      width: 360px;
+      padding: 35px 25px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
 
-  <!-- Course & School -->
-  <p style="font-size: 18px; margin-top: 5px;">
-    BS Information Technology • ACLC College of Mandaue
-  </p>
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, #6a5acd, #7b68ee);
+      margin: 0 auto 15px;
+    }
 
-  <!-- About -->
-  <p style="font-size: 16px; margin-top: 20px;">
-    I am a passionate IT student who loves programming and creating systems. I always strive to learn new technologies and improve my skills every day.
-  </p>
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+    }
 
-  <!-- Skills -->
-  <h3 style="margin-top: 20px;">🧰 Skills</h3>
-  <p>
-    HTML • CSS • JavaScript • PHP • MySQL • Laravel • React
-  </p>
+    h1 {
+      margin: 10px 0 5px;
+      font-size: 22px;
+      color: #222;
+    }
 
-  <!-- Contact -->
-  <h3 style="margin-top: 20px;">📫 Contact Me</h3>
-  <p>sheenherac@gmail.com</p>
+    .role {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #6a5acd;
+      margin-bottom: 20px;
+    }
 
-</div>
+    .label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #999;
+      margin-top: 18px;
+    }
 
-</div>
+    .value {
+      font-size: 14px;
+      color: #333;
+      margin-top: 5px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #e6e6f0;
+      margin: 15px 0;
+    }
+
+    .about {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="profile-card">
+
+    <div class="profile-img">
+      <img src="https://raw.githubusercontent.com/sheenherac-blip/sheenprofile/main/20150eaa-7ec9-4cf5-a5da-cb831b74b308.jpg" alt="Profile">
+    </div>
+
+    <h1>Sheen Hera Cortes</h1>
+    <div class="role">STUDENT DEVELOPER</div>
+
+    <div class="label">COURSE</div>
+    <div class="value">BS Information Technology</div>
+
+    <div class="divider"></div>
+
+    <div class="label">SCHOOL</div>
+    <div class="value">ACLC College of Mandaue</div>
+
+    <div class="divider"></div>
+
+    <div class="label">CONTACT</div>
+    <div class="value">sheenherac@gmail.com</div>
+
+    <div class="divider"></div>
+
+    <div class="label">ABOUT</div>
+    <p class="about">
+      A Bachelor of Science in Information Technology student at ACLC College of
+      Mandaue who is passionate about web development and continuously improving
+      through hands-on experience.
+    </p>
+
+  </div>
+
+</body>
+</html>
+
 
 
