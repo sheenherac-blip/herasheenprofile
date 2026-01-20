@@ -3,99 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course Page</title>
+<title>Sheen Hera Y. Cortes | Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    transition: background 0.3s, color 0.3s;
-    background-color: #fefefe;
-    color: #111;
-  }
+:root{
+  --sky:#87ceeb;
+  --card:#ffffff;
+  --text:#222;
 
-  /* Dark mode styles */
-  body.dark-mode {
-    background-color: #111;
-    color: #fefefe;
-  }
+  --dark-bg:#0f172a;
+  --dark-card:#1e293b;
+  --dark-text:#e5e7eb;
+}
 
-  header {
-    padding: 20px;
-    text-align: left;
-  }
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
 
-  h1.course-title {
-    margin-left: 3ch; /* 3 character spaces */
-  }
+body{
+  margin:0;
+  background:var(--sky);
+  overflow:hidden;
+}
 
-  .social-icons {
-    text-align: center;
-    margin: 20px 0;
-  }
+/* ---------- LOADING ---------- */
+#loading{
+  position:fixed;
+  inset:0;
+  background:var(--sky);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
 
-  .social-icons img {
-    width: 40px;
-    margin: 0 10px;
-    vertical-align: middle;
-  }
+.loading-text{
+  color:white;
+  font-size:22px;
+  letter-spacing:3px;
+  animation:pulse 1.5s infinite;
+}
 
-  .sheen {
-    text-align: center;
-    margin: 10px 0;
-    font-weight: bold;
-  }
+@keyframes pulse{
+  0%,100%{opacity:.4}
+  50%{opacity:1}
+}
 
-  .credits {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: gray;
-  }
+/* ---------- FLOWERS ---------- */
+.flower{
+  position:absolute;
+  top:-30px;
+  color:white;
+  opacity:.8;
+  animation:fall linear infinite;
+}
 
-  .mode-switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    background: #eee;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
+@keyframes fall{
+  to{
+    transform:translateY(120vh) rotate(360deg);
   }
+}
+
+/* ---------- MAIN ---------- */
+#main{
+  display:none;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  width:420px; /* BIGGER CARD */
+  background:var(--card);
+  border-radius:30px;
+  padding:40px 30px;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,.25);
+  color:var(--text);
+}
+
+.avatar{
+  width:130px;
+  height:130px;
+  margin:auto;
+  border-radius:50%;
+  padding:6px;
+  background:linear-gradient(135deg,#87ceeb,#cfefff);
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+h1{
+  margin:16px 0 8px;
+}
+
+.tags{
+  font-size:14px;
+  opacity:.85;
+}
+
+.bio{
+  margin:16px 0;
+  font-size:15px;
+}
+
+.course, .skills{
+  font-size:15px;
+  margin-top:6px;
+}
+
+.socials{
+  margin-top:24px;
+  display:flex;
+  justify-content:space-around;
+  font-size:14px;
+}
+
+.socials i{
+  font-size:24px;
+}
+
+.credit{
+  margin-top:18px;
+  font-size:13px;
+  opacity:.6;
+}
+
+/* ---------- DARK MODE ---------- */
+.dark{
+  background:var(--dark-bg);
+}
+
+.dark .card{
+  background:var(--dark-card);
+  color:var(--dark-text);
+}
+
+/* ---------- TOGGLE ---------- */
+.toggle{
+  position:fixed;
+  top:16px;
+  right:16px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  font-size:18px;
+}
 </style>
 </head>
+
 <body>
 
-<header>
-  <h1 class="course-title">   Introduction to Programming</h1> <!-- 3 spaces before title -->
-</header>
-
-<div class="social-icons">
-  <img src="facebook-icon.png" alt="Facebook">
-  <img src="twitter-icon.png" alt="Twitter">
-  <img src="instagram-icon.png" alt="Instagram">
+<!-- LOADING SCREEN -->
+<div id="loading">
+  <div class="loading-text">Loading ✿</div>
 </div>
 
-<div class="sheen">
-  Sheen Hera
-</div>
+<!-- MAIN -->
+<div id="main">
 
-<div class="credits">
-  &copy; Sheen Hera Y. Cortes
-</div>
+<button class="toggle" onclick="toggleMode()">☾</button>
 
-<!-- Light/Dark mode switch -->
-<button class="mode-switch" onclick="toggleMode()">Toggle Light/Dark Mode</button>
+<div class="card">
+
+  <div class="avatar">
+    <img src="https://raw.githubusercontent.com/sheenherac-blip/sheenprofile/main/20150eaa-7ec9-4cf5-a5da-cb831b74b308.jpg">
+  </div>
+
+  <h1>Sheen Hera Y. Cortes</h1>
+
+  <div class="tags">
+    🎨 UI design • 🎮 Gaming • 🌸 himejoshi (姫女子) • 💻 Coder
+  </div>
+
+  <div class="bio">
+    “don’t mind me pal I'm just enjoying things in here for a while”
+  </div>
+
+  <div class="course">
+    📘 BS Information Technology
+  </div>
+
+  <div class="skills">
+    ☕ Java • 🎨 CSS • 🌐 HTML
+  </div>
+
+  <div class="socials">
+    <div><i class="fab fa-facebook"></i><br>Sheen Hera</div>
+    <div><i class="fab fa-instagram"></i><br>Sheen Hera</div>
+    <div><i class="fab fa-tiktok"></i><br>Sheen Hera</div>
+  </div>
+
+  <div class="credit">
+    © Sheen Hera Y. Cortes
+  </div>
+
+</div>
+</div>
 
 <script>
-  function toggleMode() {
-    document.body.classList.toggle('dark-mode');
-  }
+/* FLOWERS */
+for(let i=0;i<22;i++){
+  let f=document.createElement("div");
+  f.className="flower";
+  f.textContent="✿";
+  f.style.left=Math.random()*100+"vw";
+  f.style.fontSize=14+Math.random()*18+"px";
+  f.style.animationDuration=6+Math.random()*6+"s";
+  document.body.appendChild(f);
+}
+
+/* LOADING EXIT */
+setTimeout(()=>{
+  document.getElementById("loading").style.display="none";
+  document.getElementById("main").style.display="flex";
+},2000);
+
+/* DARK MODE */
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
 </script>
 
 </body>
 </html>
-
-
-
