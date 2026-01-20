@@ -1,230 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheen Hera | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hera Sheen Profile</title>
+  <style>
+    :root {
+      --bg-color: #fdfdfd;
+      --text-color: #111;
+      --accent-color: #ff6b81;
+    }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    [data-theme="dark"] {
+      --bg-color: #111;
+      --text-color: #fdfdfd;
+      --accent-color: #ff6b81;
+    }
 
-<style>
-:root{
-  --sky:#87ceeb;
-  --card:#ffffff;
-  --text:#222;
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-  --dark-bg:#0f172a;
-  --dark-card:#1e293b;
-  --dark-text:#e5e7eb;
-}
+    .bio {
+      margin-top: 50px;
+      font-size: 1.1rem;
+    }
 
-*{
-  box-sizing:border-box;
-  font-family:"Segoe UI",sans-serif;
-}
+    /* Added spacing before course */
+    .course {
+      margin-top: 3em; /* three spaces effect */
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-body{
-  margin:0;
-  background:var(--sky);
-  overflow:hidden;
-}
+    .social-icons {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      position: relative; /* allow credit positioning */
+      margin-top: 2em;
+    }
 
-/* ---------- LOADING ---------- */
-#loading{
-  position:fixed;
-  inset:0;
-  background:var(--sky);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:10;
-}
+    .social-icons a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+    }
 
-.loading-text{
-  color:white;
-  font-size:22px;
-  letter-spacing:3px;
-  animation:pulse 1.5s infinite;
-}
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
 
-@keyframes pulse{
-  0%,100%{opacity:.4}
-  50%{opacity:1}
-}
+    /* Move credit under middle icon */
+    .credit {
+      position: absolute;
+      top: 2.5em; /* adjust distance below icons */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      text-align: center;
+    }
 
-/* ---------- FLOWERS ---------- */
-.flower{
-  position:absolute;
-  top:-30px;
-  color:white;
-  opacity:.8;
-  animation:fall linear infinite;
-}
+    .theme-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
 
-@keyframes fall{
-  to{
-    transform:translateY(120vh) rotate(360deg);
-  }
-}
-
-/* ---------- MAIN ---------- */
-#main{
-  display:none;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.card{
-  width:360px;
-  background:var(--card);
-  border-radius:28px;
-  padding:32px 24px;
-  text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
-  color:var(--text);
-}
-
-.avatar{
-  width:120px;
-  height:120px;
-  margin:auto;
-  border-radius:50%;
-  padding:5px;
-  background:linear-gradient(135deg,#87ceeb,#cfefff);
-}
-
-.avatar img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-}
-
-h1{
-  margin:14px 0 6px;
-}
-
-.tags{
-  font-size:13px;
-  opacity:.85;
-}
-
-.bio{
-  margin:14px 0;
-  font-size:14px;
-}
-
-.course, .skills{
-  font-size:14px;
-  margin-top:6px;
-}
-
-.socials{
-  margin-top:22px;
-  display:flex;
-  justify-content:space-around;
-  font-size:13px;
-}
-
-.socials i{
-  font-size:22px;
-}
-
-/* ---------- DARK MODE ---------- */
-.dark{
-  background:var(--dark-bg);
-}
-
-.dark .card{
-  background:var(--dark-card);
-  color:var(--dark-text);
-}
-
-/* ---------- TOGGLE ---------- */
-.toggle{
-  position:fixed;
-  top:16px;
-  right:16px;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:none;
-  cursor:pointer;
-}
-</style>
+    .theme-switch:hover {
+      background: #ff4c61;
+    }
+  </style>
 </head>
+<body data-theme="light">
 
-<body>
-
-<!-- LOADING SCREEN -->
-<div id="loading">
-  <div class="loading-text">Loading ✿</div>
-</div>
-
-<!-- MAIN -->
-<div id="main">
-
-<button class="toggle" onclick="toggleMode()">☾</button>
-
-<div class="card">
-
-  <div class="avatar">
-    <img src="https://raw.githubusercontent.com/sheenherac-blip/sheenprofile/main/20150eaa-7ec9-4cf5-a5da-cb831b74b308.jpg">
-  </div>
-
-  <h1>Sheen Hera</h1>
-
-  <div class="tags">
-    🎨 UI design • 🎮 Gaming • 🌸 himejoshi (姫女子) • 💻 Coder
-  </div>
+  <button class="theme-switch" onclick="toggleTheme()">🌙</button>
 
   <div class="bio">
-    “don’t mind me pal I'm just enjoying things in here for a while”
+    Hello! I'm Nethy BRIN, passionate about web development and digital design.
   </div>
 
   <div class="course">
-    📘 BS Information Technology
+     Bachelor of Science in Information Technology
   </div>
 
-  <div class="skills">
-    ☕ Java • 🎨 CSS • 🌐 HTML
+  <div class="social-icons">
+    <a href="#" target="_blank">🌐</a>
+    <a href="#" target="_blank">📸</a>
+    <a href="#" target="_blank">💬</a>
+    <div class="credit">© Sheen Hera Y. Cortes</div>
   </div>
 
-  <div class="socials">
-    <div><i class="fab fa-facebook"></i><br>Sheen Hera</div>
-    <div><i class="fab fa-instagram"></i><br>Sheen Hera</div>
-    <div><i class="fab fa-tiktok"></i><br>Sheen Hera</div>
-  </div>
-
-</div>
-</div>
-
-<script>
-/* FLOWERS (SAFE) */
-for(let i=0;i<20;i++){
-  let f=document.createElement("div");
-  f.className="flower";
-  f.textContent="✿";
-  f.style.left=Math.random()*100+"vw";
-  f.style.fontSize=14+Math.random()*16+"px";
-  f.style.animationDuration=6+Math.random()*6+"s";
-  document.body.appendChild(f);
-}
-
-/* LOADING EXIT */
-setTimeout(()=>{
-  document.getElementById("loading").style.display="none";
-  document.getElementById("main").style.display="flex";
-},2000);
-
-/* DARK MODE */
-function toggleMode(){
-  document.body.classList.toggle("dark");
-}
-</script>
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.getAttribute("data-theme") === "light") {
+        body.setAttribute("data-theme", "dark");
+      } else {
+        body.setAttribute("data-theme", "light");
+      }
+    }
+  </script>
 
 </body>
 </html>
