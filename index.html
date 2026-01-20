@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sheen Hera | Portfolio</title>
 
 <link rel="stylesheet"
@@ -24,10 +24,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 body{
   margin:0;
   font-family:"Segoe UI",sans-serif;
+  background:var(--sky);
   overflow:hidden;
 }
 
-/* ---------- LOADING SCREEN ---------- */
+/* ---------- LOADING ---------- */
 #loading{
   position:fixed;
   inset:0;
@@ -35,12 +36,12 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:99;
+  z-index:10;
 }
 
 .loading-text{
-  font-size:22px;
   color:white;
+  font-size:22px;
   letter-spacing:3px;
   animation:pulse 1.5s infinite;
 }
@@ -67,13 +68,18 @@ body{
 
 /* ---------- APP ---------- */
 #app{
-  display:none;
   min-height:100vh;
-  background:var(--sky);
   display:flex;
   justify-content:center;
   align-items:center;
-  transition:.4s;
+  opacity:0;
+  visibility:hidden;
+  transition:.8s ease;
+}
+
+#app.show{
+  opacity:1;
+  visibility:visible;
 }
 
 .card{
@@ -103,29 +109,11 @@ body{
   object-fit:cover;
 }
 
-h1{
-  margin:15px 0 6px;
-}
+h1{margin:15px 0 6px}
 
-.tags{
-  font-size:13px;
-  opacity:.85;
-}
+.tags{font-size:13px;opacity:.85}
 
-.bio{
-  margin:15px 0;
-  font-size:14px;
-}
-
-.course{
-  margin-top:10px;
-  font-size:14px;
-}
-
-.skills{
-  margin-top:8px;
-  font-size:14px;
-}
+.bio{margin:15px 0;font-size:14px}
 
 .socials{
   margin-top:22px;
@@ -133,14 +121,7 @@ h1{
   justify-content:space-around;
 }
 
-.socials div{
-  text-align:center;
-  font-size:13px;
-}
-
-.socials i{
-  font-size:22px;
-}
+.socials i{font-size:22px}
 
 /* ---------- DARK MODE ---------- */
 .dark{
@@ -154,7 +135,7 @@ h1{
 
 /* ---------- TOGGLE ---------- */
 .toggle{
-  position:absolute;
+  position:fixed;
   top:18px;
   right:18px;
   width:40px;
@@ -194,57 +175,47 @@ h1{
     “don’t mind me pal I'm just enjoying things in here for a while”
   </div>
 
-  <div class="course">
-    📘 BS Information Technology
-  </div>
-
-  <div class="skills">
-    ☕ Java • 🎨 CSS • 🌐 HTML
-  </div>
+  <p>📘 BS Information Technology</p>
+  <p>☕ Java • 🎨 CSS • 🌐 HTML</p>
 
   <div class="socials">
-    <div>
-      <i class="fab fa-facebook"></i><br>Sheen Hera
-    </div>
-    <div>
-      <i class="fab fa-instagram"></i><br>Sheen Hera
-    </div>
-    <div>
-      <i class="fab fa-tiktok"></i><br>Sheen Hera
-    </div>
+    <div><i class="fab fa-facebook"></i><br>Sheen Hera</div>
+    <div><i class="fab fa-instagram"></i><br>Sheen Hera</div>
+    <div><i class="fab fa-tiktok"></i><br>Sheen Hera</div>
   </div>
 
 </div>
 </div>
 
 <script>
-window.onload = () => {
+window.addEventListener("load", () => {
 
   /* FLOWERS */
-  for(let i=0;i<30;i++){
-    let f=document.createElement("div");
+  for(let i=0;i<25;i++){
+    const f=document.createElement("div");
     f.className="flower";
-    f.innerHTML="✿";
+    f.textContent="✿";
     f.style.left=Math.random()*100+"vw";
     f.style.fontSize=14+Math.random()*16+"px";
     f.style.animationDuration=5+Math.random()*6+"s";
     document.body.appendChild(f);
   }
 
-  /* LOAD TRANSITION */
+  /* TRANSITION */
   setTimeout(()=>{
     document.getElementById("loading").style.display="none";
-    document.getElementById("app").style.display="flex";
+    document.getElementById("app").classList.add("show");
   },2500);
-}
+});
 
 function toggleMode(){
-  document.getElementById("app").classList.toggle("dark");
+  document.body.classList.toggle("dark");
 }
 </script>
 
 </body>
 </html>
+
 
 
 
